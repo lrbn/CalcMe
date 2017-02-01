@@ -10,9 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var result: UITextField!
+    
+    var answer = Float()
+    var currentNumber = Float()
+    var currentOperator = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        currentOperator = "="
+        result.text = ("\(answer)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +28,17 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func btnNumberInput(sender: UIButton) {
+        
+        currentNumber = currentNumber * 10 + Float(sender.titleLabel!.text!.toInt()!)
+        result.text = ("\(currentNumber)")
+        
+    }
+    
+    @IBAction func btnOperator(sender: UIButton) {
+    }
 
+    @IBAction func btnClear(sender: UIButton) {
+    }
 }
 
